@@ -3,7 +3,7 @@ import Reveal from "./Reveal";
 
 export default function Travel() {
   return (
-    <section className="travel" id="travel">
+    <section className="travel" id="stay">
       <div className="tint tint--travel">
         <img className="bg-media" src="/assets/img/travel-bg.jpg" alt="" />
       </div>
@@ -40,12 +40,34 @@ export default function Travel() {
           <h2 className="heading">Where to Stay</h2>
           <p className="script-sub">in town + along the coast</p>
           {HOTELS.map((hotel) => (
-            <p key={hotel.name}>
-              <a href={hotel.url} target="_blank" rel="noopener noreferrer">
-                {hotel.name}
-              </a>{" "}
-              {hotel.text}
-            </p>
+            <div className="hotel" key={hotel.name}>
+              <p>
+                <a href={hotel.url} target="_blank" rel="noopener noreferrer">
+                  {hotel.name}
+                </a>{" "}
+                {hotel.text}
+              </p>
+              {hotel.note && <p className="hotel-note">{hotel.note}</p>}
+              {hotel.block && (
+                <div className="hotel-block">
+                  <p className="hotel-block-title">{hotel.block.title}</p>
+                  <ul className="hotel-rooms">
+                    {hotel.block.rooms.map((room) => (
+                      <li key={room.type}>
+                        <span className="hotel-room-type">
+                          {room.type} <span className="hotel-room-count">({room.count} available)</span>
+                        </span>
+                        <span className="hotel-room-price">{room.price}</span>
+                        {room.extra && <span className="hotel-room-extra">{room.extra}</span>}
+                      </li>
+                    ))}
+                  </ul>
+                  {hotel.block.notes.map((n) => (
+                    <p className="hotel-block-note" key={n}>{n}</p>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </Reveal>
       </div>

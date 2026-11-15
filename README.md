@@ -27,8 +27,11 @@ The RSVP form sends the same field names as the Framer form: `Will you be attend
 
 ## Structure
 
-- `src/content.js` — hotels, itinerary events, story, FAQ, and gallery copy
-- `src/components/` — one component per section (Menu, Hero, Rsvp, Travel, Itinerary, Gallery, Story, Faq, Footer)
+- `src/content.js` — menu links, hotels (including the Hotel Zoagli room block for June 8–10), wedding-day events, story, FAQ, and gallery copy
+- `src/data/journey.js` — train route from Milan Malpensa to Zoagli (stops, fares, booking links)
+- `src/data/welcomeDinner.js` — June 8 Welcome Dinner boat route, boarding point, and sights
+- `src/pages/` — Home (`/`), Travel (`/travel`), Itinerary (`/itinerary`)
+- `src/components/` — one component per section (Menu, Hero, Rsvp, Travel, JourneyPlanner, JourneyMap, BoatMap, Gallery, Story, Faq, Footer)
 - `src/styles.css` — all styling, with breakpoints at 1200px and 810px like the Framer site
 - `public/assets/` — photos and videos from the original site
 

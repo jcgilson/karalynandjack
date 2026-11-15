@@ -1,26 +1,22 @@
+import { Routes, Route, Navigate } from "react-router-dom";
 import Menu from "./components/Menu";
-import Hero from "./components/Hero";
-import Rsvp from "./components/Rsvp";
-import Travel from "./components/Travel";
-import Itinerary from "./components/Itinerary";
-import Gallery from "./components/Gallery";
-import Story from "./components/Story";
-import Faq from "./components/Faq";
 import Footer from "./components/Footer";
+import ScrollManager from "./components/ScrollManager";
+import Home from "./pages/Home";
+import TravelPage from "./pages/TravelPage";
+import ItineraryPage from "./pages/ItineraryPage";
 
 export default function App() {
   return (
     <>
+      <ScrollManager />
       <Menu />
-      <main>
-        <Hero />
-        <Rsvp />
-        <Travel />
-        <Itinerary />
-        <Gallery />
-        <Story />
-        <Faq />
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/travel" element={<TravelPage />} />
+        <Route path="/itinerary" element={<ItineraryPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
       <Footer />
     </>
   );

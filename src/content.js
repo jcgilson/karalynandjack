@@ -1,9 +1,9 @@
 export const NAV_LINKS = [
-  { href: "#rsvp", label: "RSVP" },
-  { href: "#travel", label: "Travel" },
-  { href: "#itinerary", label: "Itinerary" },
-  { href: "#our-story", label: "Our Story" },
-  { href: "#faq", label: "FAQ" },
+  { to: "/#rsvp", label: "RSVP" },
+  { to: "/travel", label: "Travel" },
+  { to: "/itinerary", label: "Itinerary" },
+  { to: "/#our-story", label: "Our Story" },
+  { to: "/#faq", label: "FAQ" },
 ];
 
 export const HOTELS = [
@@ -11,10 +11,25 @@ export const HOTELS = [
     name: "Hotel Zoagli",
     url: "https://www.hotelzoagli.it/",
     text: "the town’s best-reviewed proper hotel, and now the closest option to the venue, right across from the train station. Family run, with simple but clean rooms and a breakfast guests love. Five minute walk to the public beach.",
+    block: {
+      title: "Rooms held for our guests, June 8 – 10",
+      rooms: [
+        { type: "Single room", count: 3, price: "€69 a night" },
+        { type: "Double room", count: 11, price: "€125 a night", extra: "a third bed can be added in some for €20 a night" },
+        { type: "Family room", count: 2, price: "priced by number of guests", extra: "a double and a single, or a double and two singles" },
+      ],
+      notes: [
+        "Every room has a private bathroom, fridge, microwave and free wifi.",
+        "Buffet breakfast is €15 per person, booked on arrival. A baby cot is €10 a night on request.",
+        "Tourist tax of €1 per person per night (ages 15 and up) is not included.",
+        "The hotel is spread over three floors with no elevator.",
+      ],
+    },
   },
   {
     name: "Vista Portofino",
-    url: "https://www.booking.com/hotel/it/vista-portofino-zoagli.html",
+    url: "https://www.booking.com/hotel/it/vista-portofino-zoagli.html?checkin=2027-06-07&checkout=2027-06-10&group_adults=2&group_children=0&no_rooms=1",
+    note: "Availability only shows on Booking.com once dates are set, so this link opens on June 7 – 10. Adjust the dates to fit your stay.",
     text: "apartment style in Zoagli, singled out for its views across the gulf from a private terrace. A short walk to Spiaggia del Duca and to the castle venue.",
   },
   {
@@ -30,12 +45,6 @@ export const HOTELS = [
 ];
 
 export const EVENTS = [
-  {
-    date: "6/8",
-    title: "Welcome Dinner",
-    time: "4PM",
-    text: "The moment we’ve been waiting for. We ask that you set your phones and cameras aside and be fully present with us as we say “I do.”  We promise to share plenty of photos.",
-  },
   {
     date: "6/9",
     title: "The Ceremony",

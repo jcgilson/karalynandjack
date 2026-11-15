@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { NAV_LINKS } from "../content";
 import { REGISTRY_URL } from "../config";
 
@@ -54,9 +55,9 @@ export default function Menu() {
           </svg>
         </button>
         {NAV_LINKS.map((link) => (
-          <a key={link.href} href={link.href} onClick={close}>
+          <Link key={link.to} to={link.to} onClick={close}>
             {link.label}
-          </a>
+          </Link>
         ))}
         {REGISTRY_URL && (
           <a href={REGISTRY_URL} target="_blank" rel="noopener noreferrer" onClick={close}>
