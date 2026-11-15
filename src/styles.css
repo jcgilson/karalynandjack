@@ -378,6 +378,16 @@ section { position: relative; overflow: hidden; }
 .event-sights { margin: .4em 0 0; padding-left: 1.2em; font-size: .85em; }
 .event-sights li + li { margin-top: .5em; }
 
+/* Three columns: Welcome Dinner · The Ceremony · The Reception */
+.itin-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 60px; align-items: start; }
+.itin-group-head { padding-bottom: 14px; margin-bottom: 28px; border-bottom: 1px solid rgba(226, 214, 206, .55); }
+.itin-group-date { font-size: .7em; letter-spacing: .16em; text-transform: uppercase; opacity: .8; }
+.itin-group-title { margin: 4px 0 0; font-family: var(--font-display); font-weight: 400; font-size: calc(var(--heading) * .85); line-height: 1.1; }
+.itin-group .event + .event { margin-top: 44px; }
+
+@media (max-width: 1099px) {
+  .itin-groups { grid-template-columns: 1fr; row-gap: 72px; max-width: 640px; }
+}
 @media (max-width: 1199px) {
   .itinerary-inner { padding: 60px var(--gutter) 70px; }
   .events { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px; }

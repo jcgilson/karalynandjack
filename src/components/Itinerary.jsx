@@ -1,5 +1,5 @@
 import { useId, useState } from "react";
-import { EVENTS } from "../content";
+import { ITINERARY } from "../content";
 import Reveal from "./Reveal";
 
 export default function Itinerary() {
@@ -14,29 +14,39 @@ export default function Itinerary() {
           <h2 className="title-caps">Itinerary</h2>
           <p className="script-sub">timeline of events</p>
         </Reveal>
-        <div className="events">
-          {EVENTS.map((event) => (
-            <Reveal as="article" className="event" key={event.title}>
-              <div className="event-bar">
-                <span>{event.date}</span>
-                <span>{event.title}</span>
-                <span>{event.time}</span>
-              </div>
-              <p>{event.text}</p>
-              {event.note && <p className="event-note">{event.note}</p>}
-              {event.links && (
-                <ul className="event-links">
-                  {event.links.map((link) => (
-                    <li key={link.url}>
-                      <a href={link.url} target="_blank" rel="noopener noreferrer">
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {event.details && <EventDetails details={event.details} />}
-            </Reveal>
+        <div className="itin-groups">
+          {ITINERARY.map((group) => (
+            <section className="itin-group" key={group.title} aria-labelledby={`itin-${group.title}`}>
+              <Reveal as="header" className="itin-group-head">
+                <p className="itin-group-date">{group.date}</p>
+                <h3 className="itin-group-title" id={`itin-${group.title}`}>
+                  {group.title}
+                </h3>
+              </Reveal>
+              {group.events.map((event) => (
+                <Reveal as="article" className="event" key={event.title}>
+                  <div className="event-bar">
+                    <span>{event.date}</span>
+                    <span>{event.title}</span>
+                    <span>{event.time}</span>
+                  </div>
+                  <p>{event.text}</p>
+                  {event.note && <p className="event-note">{event.note}</p>}
+                  {event.links && (
+                    <ul className="event-links">
+                      {event.links.map((link) => (
+                        <li key={link.url}>
+                          <a href={link.url} target="_blank" rel="noopener noreferrer">
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {event.details && <EventDetails details={event.details} />}
+                </Reveal>
+              ))}
+            </section>
           ))}
         </div>
       </div>

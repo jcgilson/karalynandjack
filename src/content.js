@@ -89,6 +89,14 @@ export const EVENTS = [
   },
 ];
 
+// The itinerary shows these three groups as columns (stacked on smaller screens).
+const pick = (...titles) => titles.map((t) => EVENTS.find((e) => e.title === t));
+export const ITINERARY = [
+  { date: "Tuesday, June 8", title: "Welcome Dinner", events: pick("Welcome Dinner") },
+  { date: "Wednesday, June 9", title: "The Ceremony", events: pick("The Ceremony", "Cocktail Hour") },
+  { date: "Wednesday, June 9", title: "The Reception", events: pick("The Reception", "Send Off") },
+];
+
 // Widths (px at desktop) match the original photo strip.
 export const GALLERY = [451, 450, 450, 450, 450, 478, 750, 480, 480, 480, 480, 480].map(
   (width, i) => ({ src: `/assets/img/gallery-${String(i + 1).padStart(2, "0")}.jpg`, width })
