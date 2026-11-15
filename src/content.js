@@ -1,7 +1,10 @@
+import { SIGHTS, LINKS, googleMapsUrl } from "./data/welcomeDinner";
+
 export const NAV_LINKS = [
   { to: "/#rsvp", label: "RSVP" },
-  { to: "/travel", label: "Travel" },
-  { to: "/itinerary", label: "Itinerary" },
+  { to: "/#getting-here", label: "Travel" },
+  { to: "/#travel", label: "Stay + Explore" },
+  { to: "/#itinerary", label: "Itinerary" },
   { to: "/#our-story", label: "Our Story" },
   { to: "/#faq", label: "FAQ" },
 ];
@@ -46,6 +49,19 @@ export const HOTELS = [
 ];
 
 export const EVENTS = [
+  {
+    date: "6/8",
+    title: "Welcome Dinner",
+    time: "6–9PM",
+    text: "We’ll kick off the celebration on the water with a boat ride from Bruno di Lorenzi, cruising the Golfo del Tigullio past Santa Margherita Ligure and Portofino along the route of the Line 1 ferry. We’ll provide pizza, pasta, and wine, so come hungry. We board at the Rapallo ferry pier on Lungomare Vittorio Veneto, one train stop from Zoagli.",
+    note: "Boats run in favorable weather and sea conditions.",
+    links: [
+      { label: "Boarding point on Google Maps", url: googleMapsUrl() },
+      { label: "Boarding point details", url: LINKS.boardingPoint },
+      { label: "Line 1 ferry route", url: LINKS.line1 },
+    ],
+    details: { title: "Sights along the route", items: SIGHTS },
+  },
   {
     date: "6/9",
     title: "The Ceremony",

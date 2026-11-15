@@ -3,8 +3,6 @@ import Menu from "./components/Menu";
 import Footer from "./components/Footer";
 import ScrollManager from "./components/ScrollManager";
 import Home from "./pages/Home";
-import TravelPage from "./pages/TravelPage";
-import ItineraryPage from "./pages/ItineraryPage";
 
 export default function App() {
   return (
@@ -13,8 +11,9 @@ export default function App() {
       <Menu />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/travel" element={<TravelPage />} />
-        <Route path="/itinerary" element={<ItineraryPage />} />
+        {/* Old page URLs now jump to their section on the single page. */}
+        <Route path="/travel" element={<Navigate to="/#getting-here" replace />} />
+        <Route path="/itinerary" element={<Navigate to="/#itinerary" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />

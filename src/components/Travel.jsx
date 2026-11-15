@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 
 export default function Travel() {
   return (
-    <section className="travel" id="stay">
+    <section className="travel" id="travel">
       <div className="tint tint--travel">
         <img className="bg-media" src="/assets/img/travel-bg.jpg" alt="" />
       </div>
