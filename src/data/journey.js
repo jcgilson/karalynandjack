@@ -78,11 +78,15 @@ export const LEGS = [
   },
 ];
 
+// Approximate exchange rate for showing dollar estimates (November 2026).
+export const USD_PER_EUR = 1.16;
+
 export const TRAVEL_TIME = "≈ 2 h 15 from Milano Centrale";
 
 export const ARRIVAL = {
   title: "Walk to Castello Canevaro",
   text: "From Zoagli station the castle is about a five minute walk through the center of town.",
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=Castello+Canevaro%2C+Via+Luisa+Canevaro+18%2C+16035+Zoagli+GE%2C+Italy",
 };
 
 // Land/sea and landmark outlines for the illustrated map, as [lat, lon].

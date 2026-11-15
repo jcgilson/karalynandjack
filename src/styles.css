@@ -685,6 +685,9 @@ section { position: relative; overflow: hidden; }
 .cost-total span { display: flex; flex-direction: column; }
 .cost-total small { font-size: .75em; font-style: italic; opacity: .8; }
 .cost-total strong { font-family: var(--font-display); font-weight: 400; font-size: 40px; line-height: 1; }
+.cost-total strong { text-align: right; }
+.cost-total .cost-usd { display: block; margin-top: 6px; font-size: 20px; font-style: italic; opacity: .8; }
+.cost-table .cost-usd { display: block; font-size: .8em; font-style: italic; opacity: .8; }
 .cost-book {
   display: block; text-align: center;
   padding: 13px 18px;

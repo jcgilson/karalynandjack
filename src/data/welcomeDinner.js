@@ -10,6 +10,9 @@ export const BOARDING = {
 export const appleMapsUrl = () =>
   `https://maps.apple.com/?q=${encodeURIComponent(BOARDING.name)}&address=${encodeURIComponent(BOARDING.address)}&ll=${BOARDING.coord.join(",")}`;
 
+export const googleMapsUrl = () =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${BOARDING.name}, ${BOARDING.address}`)}`;
+
 export const LINKS = {
   line1: "https://www.traghettiportofino.it/en/lines-trips/line-1",
   boardingPoint: "https://www.traghettiportofino.it/en/useful-info/boarding-points/rapallo",

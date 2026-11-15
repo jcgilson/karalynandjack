@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import BoatMap from "../components/BoatMap";
 import Reveal from "../components/Reveal";
 import { EVENTS } from "../content";
-import { SIGHTS, BOARDING, LINKS } from "../data/welcomeDinner";
+import { SIGHTS, BOARDING, LINKS, googleMapsUrl } from "../data/welcomeDinner";
 
 export default function ItineraryPage() {
   const [activeSight, setActiveSight] = useState(null);
@@ -38,7 +38,15 @@ export default function ItineraryPage() {
             <Reveal className="welcome-copy">
               <dl className="welcome-facts">
                 <div><dt>When</dt><dd>6 – 9 PM</dd></div>
-                <div><dt>Boarding</dt><dd>{BOARDING.name}, Lungomare Vittorio Veneto</dd></div>
+                <div>
+                  <dt>Boarding</dt>
+                  <dd>
+                    {BOARDING.name}, Lungomare Vittorio Veneto ·{" "}
+                    <a href={googleMapsUrl()} target="_blank" rel="noopener noreferrer">
+                      Google Maps
+                    </a>
+                  </dd>
+                </div>
                 <div><dt>Food</dt><dd>Pizza, pasta &amp; wine</dd></div>
               </dl>
               <p>

@@ -1,10 +1,12 @@
 import { useCallback, useMemo, useState } from "react";
-import { LEGS, ARRIVAL, BOOKING, TRAVEL_TIME } from "../data/journey";
+import { LEGS, ARRIVAL, BOOKING, TRAVEL_TIME, USD_PER_EUR } from "../data/journey";
 import JourneyMap from "./JourneyMap";
 import Reveal from "./Reveal";
 
 const euro = (n) => `€${Math.round(n)}`;
 const range = ([lo, hi]) => (lo === hi ? euro(lo) : `${euro(lo)}–${euro(hi)}`);
+const dollar = (n) => `$${Math.round(n * USD_PER_EUR)}`;
+const usdRange = ([lo, hi]) => `≈ ${lo === hi ? dollar(lo) : `${dollar(lo)}–${dollar(hi)}`}`;
 
 export default function JourneyPlanner() {
   const [activeLeg, setActiveLeg] = useState(null);
@@ -104,7 +106,12 @@ export default function JourneyPlanner() {
                   <span className="leg-num">★</span>
                   <span className="leg-title">
                     <span className="leg-line">{ARRIVAL.title}</span>
-                    <span className="leg-route">{ARRIVAL.text}</span>
+                    <span className="leg-route">
+                      {ARRIVAL.text}{" "}
+                      <a href={ARRIVAL.mapUrl} target="_blank" rel="noopener noreferrer">
+                        Google Maps
+                      </a>
+                    </span>
                   </span>
                 </div>
               </li>
@@ -142,7 +149,9 @@ export default function JourneyPlanner() {
                   ))}
                   <tr className="cost-sub">
                     <th scope="row">Per person, one way</th>
-                    <td>{range(cost.perPerson)}</td>
+                    <td>
+                      {range(cost.perPerson)} <span className="cost-usd">{usdRange(cost.perPerson)}</span>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -153,13 +162,16 @@ export default function JourneyPlanner() {
                     {travelers} × {roundTrip ? "round trip" : "one way"}
                   </small>
                 </span>
-                <strong>{range(cost.total)}</strong>
+                <strong>
+                  {range(cost.total)}
+                  <span className="cost-usd">{usdRange(cost.total)}</span>
+                </strong>
               </div>
               <a className="cost-book" href={BOOKING.trenitalia} target="_blank" rel="noopener noreferrer">
                 Begin booking on Trenitalia →
               </a>
               <p className="cost-note">
-                Fares are estimates and change with demand — Intercity seats are cheapest booked weeks ahead. Buy the Malpensa Express
+                Fares are estimates and change with demand — Intercity seats are cheapest booked weeks ahead. Dollar amounts are approximate, at about {`$${USD_PER_EUR.toFixed(2)}`} to €1. Buy the Malpensa Express
                 separately at the airport or online.
               </p>
             </div>
