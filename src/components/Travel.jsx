@@ -1,3 +1,4 @@
+import { useId, useState } from "react";
 import { HOTELS } from "../content";
 import Reveal from "./Reveal";
 
@@ -40,34 +41,7 @@ export default function Travel() {
           <h2 className="heading">Where to Stay</h2>
           <p className="script-sub">in town + along the coast</p>
           {HOTELS.map((hotel) => (
-            <div className="hotel" key={hotel.name}>
-              <p>
-                <a href={hotel.url} target="_blank" rel="noopener noreferrer">
-                  {hotel.name}
-                </a>{" "}
-                {hotel.text}
-              </p>
-              {hotel.note && <p className="hotel-note">{hotel.note}</p>}
-              {hotel.block && (
-                <div className="hotel-block">
-                  <p className="hotel-block-title">{hotel.block.title}</p>
-                  <ul className="hotel-rooms">
-                    {hotel.block.rooms.map((room) => (
-                      <li key={room.type}>
-                        <span className="hotel-room-type">
-                          {room.type} <span className="hotel-room-count">({room.count} available)</span>
-                        </span>
-                        <span className="hotel-room-price">{room.price}</span>
-                        {room.extra && <span className="hotel-room-extra">{room.extra}</span>}
-                      </li>
-                    ))}
-                  </ul>
-                  {hotel.block.notes.map((n) => (
-                    <p className="hotel-block-note" key={n}>{n}</p>
-                  ))}
-                </div>
-              )}
-            </div>
+            <Hotel key={hotel.name} hotel={hotel} />
           ))}
         </Reveal>
       </div>
@@ -92,5 +66,58 @@ export default function Travel() {
         </Reveal>
       </div>
     </section>
+  );
+}
+
+function Hotel({ hotel }) {
+  const [open, setOpen] = useState(false);
+  const detailsId = useId();
+  const { block, notes = [] } = hotel;
+  const hasDetails = Boolean(block) || notes.length > 0;
+
+  return (
+    <div className="hotel">
+      <p>
+        <a href={hotel.url} target="_blank" rel="noopener noreferrer">
+          {hotel.name}
+        </a>{" "}
+        {hotel.text}
+      </p>
+      {hasDetails && (
+        <>
+          <button type="button" className="hotel-toggle" aria-expanded={open} aria-controls={detailsId} onClick={() => setOpen((o) => !o)}>
+            {open ? "Show less" : "Show more"}
+          </button>
+          <div className="hotel-details" id={detailsId} hidden={!open}>
+            {block && (
+              <div className="hotel-block">
+                <p className="hotel-block-title">{block.title}</p>
+                <ul className="hotel-rooms">
+                  {block.rooms.map((room) => (
+                    <li key={room.type}>
+                      <span className="hotel-room-type">
+                        {room.type} <span className="hotel-room-count">({room.count} available)</span>
+                      </span>
+                      <span className="hotel-room-price">{room.price}</span>
+                      {room.extra && <span className="hotel-room-extra">{room.extra}</span>}
+                    </li>
+                  ))}
+                </ul>
+                {block.notes.map((n) => (
+                  <p className="hotel-block-note" key={n}>
+                    {n}
+                  </p>
+                ))}
+              </div>
+            )}
+            {notes.map((n) => (
+              <p className="hotel-note" key={n}>
+                {n}
+              </p>
+            ))}
+          </div>
+        </>
+      )}
+    </div>
   );
 }

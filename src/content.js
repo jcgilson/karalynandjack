@@ -29,13 +29,17 @@ export const HOTELS = [
   {
     name: "Vista Portofino",
     url: "https://www.booking.com/hotel/it/vista-portofino-zoagli.html?checkin=2027-06-07&checkout=2027-06-10&group_adults=2&group_children=0&no_rooms=1",
-    note: "Availability only shows on Booking.com once dates are set, so this link opens on June 7 – 10. Adjust the dates to fit your stay.",
     text: "apartment style in Zoagli, singled out for its views across the gulf from a private terrace. A short walk to Spiaggia del Duca and to the castle venue.",
+    notes: ["Availability only shows on Booking.com once dates are set, so this link opens on June 7 – 10. Adjust the dates to fit your stay."],
   },
   {
     name: "Casa Camilla",
-    url: "https://www.booking.com/hotel/it/casa-camilla-zoagli.it.html",
+    url: "https://www.booking.com/hotel/it/casa-camilla-zoagli.html?checkin=2027-06-07&checkout=2027-06-11&group_adults=2&group_children=0&no_rooms=1",
     text: "also in Zoagli, walking distance to both beaches. One-bedroom apartment with a sea view balcony and free private parking. Often called one of the best views in town.",
+    notes: [
+      "Four-night minimum stay.",
+      "Availability only shows on Booking.com once dates are set, so this link opens on June 7 – 11. Adjust the dates to fit your stay.",
+    ],
   },
   {
     name: "Hotel Canali",

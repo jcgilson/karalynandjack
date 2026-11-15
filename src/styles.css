@@ -296,6 +296,10 @@ section { position: relative; overflow: hidden; }
 
 /* Where to Stay: per-hotel notes and the reserved room block */
 .hotel + .hotel { margin-top: 1.3em; }
+.hotel-toggle { margin-top: .4em; padding: 0; border: 0; background: none; color: inherit; font: italic .82em var(--font-body); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; cursor: pointer; }
+.hotel-toggle::after { content: " +"; }
+.hotel-toggle[aria-expanded="true"]::after { content: " −"; }
+.hotel-toggle:hover { opacity: .7; }
 .copy .hotel-note { margin-top: .5em; font-style: italic; font-size: .82em; text-align: left; }
 .hotel-block { margin-top: 1em; padding: 18px 0 4px; border-top: 1px solid rgba(71, 48, 37, .35); border-bottom: 1px solid rgba(71, 48, 37, .35); font-size: .82em; }
 .hotel-block-title { font-family: var(--font-display); font-style: italic; font-size: 1.15em; margin-bottom: 10px; }
