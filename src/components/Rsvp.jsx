@@ -2,7 +2,7 @@ import { useState } from "react";
 import { RSVP_ENDPOINT } from "../config";
 import Reveal from "./Reveal";
 
-const EMPTY = { attending: "", name: "", guest: "", email: "", entree: "" };
+const EMPTY = { attending: "", name: "", guest: "", email: "", entree: "", dietary: "" };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function Rsvp() {
@@ -40,6 +40,7 @@ export default function Rsvp() {
     data.append("Guest Name", values.guest.trim());
     data.append("Contact", values.email.trim());
     data.append("Entree Selection", values.entree);
+    data.append("Dietary Restrictions", values.dietary.trim());
 
     setSending(true);
     setStatus("");
@@ -105,6 +106,15 @@ export default function Rsvp() {
               <path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
+          <input
+            className="line-input"
+            type="text"
+            name="Dietary Restrictions"
+            placeholder="Dietary Restrictions ( If Any )"
+            aria-label="Dietary restrictions"
+            value={values.dietary}
+            onChange={set("dietary")}
+          />
           <button className="rsvp-submit" type="submit" disabled={sending}>
             Submit
           </button>
