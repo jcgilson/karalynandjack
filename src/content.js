@@ -2,7 +2,7 @@ import { SIGHTS, LINKS, googleMapsUrl } from "./data/welcomeDinner";
 
 export const NAV_LINKS = [
   { to: "/#rsvp", label: "RSVP" },
-  { to: "/#getting-here", label: "Travel" },
+  { to: "/#getting-here", label: "Getting to Zoagli" },
   { to: "/#travel", label: "Stay + Explore" },
   { to: "/#itinerary", label: "Itinerary" },
   { to: "/#our-story", label: "Our Story" },
