@@ -46,6 +46,18 @@ export const HOTELS = [
     url: "https://www.hotelcanalirapallo.eu/en/index",
     text: "about ten minutes away in Rapallo, a belle époque villa set in a quiet park. Turkish bath, small gym, and a restaurant open in season. More rooms and amenities than anything in Zoagli itself.",
   },
+  {
+    name: "Grand Hotel Bristol Resort & Spa",
+    url: "https://www.expedia.com/Hotel-Search?HotelID=891022&selected=891022&destination=Rapallo%2C+Liguria%2C+Italy&regionId=4878&startDate=2027-06-08&endDate=2027-06-10&adults=2",
+    text: "in Rapallo, the grandest option nearby, looking out over the Gulf of Tigullio. Le Cupole, its rooftop restaurant, is known for the view, and there’s an outdoor pool in season and a full spa.",
+    notes: ["This link opens Expedia on June 8 – 10 with the Bristol at the top. Adjust the dates to fit your stay."],
+  },
+  {
+    name: "Tigullio Royal Hotel",
+    url: "https://www.hotelsone.com/rapallo-hotels-it/best-western-plus-tigullio-royal-hotel.html?q=rmcnf:1[2,0];start:2027-06-08;end:2027-06-10;cur:USD",
+    text: "a Best Western Plus right on Rapallo’s seafront promenade, steps from the beach and the town market. It looks out over the gulf, with a roof terrace and a small spa with sauna and Turkish bath. No pool.",
+    notes: ["This link opens on June 8 – 10. Adjust the dates to fit your stay."],
+  },
 ];
 
 export const EVENTS = [
