@@ -377,6 +377,13 @@ section { position: relative; overflow: hidden; }
 .event .event-details-title { margin-top: .8em; font-family: var(--font-display); font-style: italic; text-align: left; }
 .event-sights { margin: .4em 0 0; padding-left: 1.2em; font-size: .85em; }
 .event-sights li + li { margin-top: .5em; }
+.event-sights li { cursor: pointer; transition: opacity .2s; }
+.event-sights li.is-active { opacity: 1; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.event-sights:has(li.is-active) li:not(.is-active) { opacity: .6; }
+.event-map { margin-top: 1em; color: var(--brown); }
+.event-map .bmap-actions { grid-template-columns: 1fr; }
+.event-map .bmap-apple strong { font-size: 18px; }
+.event-map .bmap-line { padding: 10px 14px; font-size: 16px; justify-content: center; }
 
 /* Three columns: Welcome Dinner · The Ceremony · The Reception */
 .itin-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 60px; align-items: start; }

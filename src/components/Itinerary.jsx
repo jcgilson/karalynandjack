@@ -1,6 +1,7 @@
 import { useId, useState } from "react";
 import { ITINERARY } from "../content";
 import Reveal from "./Reveal";
+import BoatMap from "./BoatMap";
 
 export default function Itinerary() {
   return (
@@ -56,6 +57,7 @@ export default function Itinerary() {
 
 function EventDetails({ details }) {
   const [open, setOpen] = useState(false);
+  const [activeSight, setActiveSight] = useState(null);
   const id = useId();
   return (
     <>
@@ -63,10 +65,22 @@ function EventDetails({ details }) {
         {open ? "Show less" : "Show more"}
       </button>
       <div id={id} hidden={!open}>
+        {/* Interactive boat route: hover or tap a sight in the list or on the map to highlight it. */}
+        {details.map && open && (
+          <div className="event-map">
+            <BoatMap activeSight={activeSight} onSelectSight={setActiveSight} />
+          </div>
+        )}
         <p className="event-details-title">{details.title}</p>
         <ol className="event-sights">
-          {details.items.map((item) => (
-            <li key={item.name}>
+          {details.items.map((item, i) => (
+            <li
+              key={item.name}
+              className={activeSight === i ? "is-active" : ""}
+              onMouseEnter={() => setActiveSight(i)}
+              onMouseLeave={() => setActiveSight(null)}
+              onClick={() => setActiveSight((cur) => (cur === i ? null : i))}
+            >
               <strong>{item.name}</strong> {item.text}
             </li>
           ))}

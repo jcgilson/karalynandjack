@@ -61,7 +61,7 @@ export const EVENTS = [
       { label: "Boarding point details", url: LINKS.boardingPoint },
       { label: "Line 1 ferry route", url: LINKS.line1 },
     ],
-    details: { title: "Sights along the route", items: SIGHTS },
+    details: { title: "Sights along the route", items: SIGHTS, map: true },
   },
   {
     date: "6/9",
