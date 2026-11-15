@@ -16,9 +16,9 @@ export default function Home() {
       <JourneyPlanner />
       <Travel />
       <Itinerary />
-      <Gallery />
       <Story />
       <Faq />
+      <Gallery />
     </main>
   );
 }
