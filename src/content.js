@@ -16,6 +16,7 @@ export const HOTELS = [
     text: "the town’s best-reviewed proper hotel, and now the closest option to the venue, right across from the train station. Family run, with simple but clean rooms and a breakfast guests love. Five minute walk to the public beach.",
     block: {
       title: "Rooms held for our guests, June 8 – 10",
+      booking: { label: "Book directly with the hotel", url: "https://www.hotelzoagli.it/" },
       rooms: [
         { type: "Single room", count: 3, price: "€69 a night" },
         { type: "Double room", count: 11, price: "€125 a night", extra: "a third bed can be added in some for €20 a night" },

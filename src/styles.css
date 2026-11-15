@@ -303,6 +303,7 @@ section { position: relative; overflow: hidden; }
 .copy .hotel-note { margin-top: .5em; font-style: italic; font-size: .82em; text-align: left; }
 .hotel-block { margin-top: 1em; padding: 18px 0 4px; border-top: 1px solid rgba(71, 48, 37, .35); border-bottom: 1px solid rgba(71, 48, 37, .35); font-size: .82em; }
 .hotel-block-title { font-family: var(--font-display); font-style: italic; font-size: 1.15em; margin-bottom: 10px; }
+.copy .hotel-block-booking { margin: -4px 0 10px; text-align: left; }
 .hotel-rooms { list-style: none; margin: 0 0 14px; padding: 0; }
 .hotel-rooms li { display: grid; grid-template-columns: 1fr auto; column-gap: 16px; padding: 8px 0; border-top: 1px dashed rgba(71, 48, 37, .25); }
 .hotel-rooms li:first-child { border-top: 0; }

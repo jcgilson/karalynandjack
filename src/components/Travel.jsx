@@ -92,6 +92,13 @@ function Hotel({ hotel }) {
             {block && (
               <div className="hotel-block">
                 <p className="hotel-block-title">{block.title}</p>
+                {block.booking && (
+                  <p className="hotel-block-booking">
+                    <a href={block.booking.url} target="_blank" rel="noopener noreferrer">
+                      {block.booking.label}
+                    </a>
+                  </p>
+                )}
                 <ul className="hotel-rooms">
                   {block.rooms.map((room) => (
                     <li key={room.type}>
